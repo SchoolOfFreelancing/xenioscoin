@@ -1,0 +1,2 @@
+debian/bin/xeniosd usr/bin
+src/xeniosd usr/lib/xenios
