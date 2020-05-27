@@ -18,7 +18,21 @@ make -f makefile.unix            # Headless xenios
 
 See readme-qt.rst for instructions on building Xenios QT,
 the graphical xenios.
+```
+#!/bin/bash
 
+# List of packages to install before building xenioscoin
+packagelist=(
+    git
+    libssl-dev 
+    libccd-dev
+    libboost-all-dev
+    miniupnpc
+    libqrencode-dev
+)
+sudo apt-get install ${packagelist[@]}
+```
+```
 Dependencies
 ------------
 
@@ -32,7 +46,7 @@ Dependencies
 
 Note that libexecinfo should be installed, if you building under *BSD systems. 
 This library provides backtrace facility.
-
+```
 miniupnpc may be used for UPnP port mapping.  It can be downloaded from
 http://miniupnp.tuxfamily.org/files/.  UPnP support is compiled in and
 turned off by default.  Set USE_UPNP to a different value to control this:
