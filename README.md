@@ -47,31 +47,44 @@ Dependencies
 Note that libexecinfo should be installed, if you building under *BSD systems. 
 This library provides backtrace facility.
 ```
+
+```
 miniupnpc may be used for UPnP port mapping.  It can be downloaded from
 http://miniupnp.tuxfamily.org/files/.  UPnP support is compiled in and
 turned off by default.  Set USE_UPNP to a different value to control this:
  USE_UPNP=-    No UPnP support - miniupnp not required
  USE_UPNP=0    (the default) UPnP support turned off by default at runtime
  USE_UPNP=1    UPnP support turned on by default at runtime
+ ```
+ ```
 
 libqrencode may be used for QRCode image generation. It can be downloaded
 from http://fukuchi.org/works/qrencode/index.html.en, or installed via
 your package manager. Set USE_QRCODE to control this:
  USE_QRCODE=0   (the default) No QRCode support - libqrcode not required
  USE_QRCODE=1   QRCode support enabled
+ 
+ ```
+ 
+ ```
 
 Licenses of statically linked libraries:
  Berkeley DB   New BSD license with additional requirement that linked
                software must be free open source
  Boost         MIT-like license
  miniupnpc     New (3-clause) BSD license
-
+ 
+ ```
+```
 Versions used in this release:
  GCC           4.9.0
  OpenSSL       1.0.1g
  Berkeley DB   5.3.28.NC
  Boost         1.55.0
  miniupnpc     1.9.20140401
+```
+
+```
 
 Dependency Build Instructions: Ubuntu & Debian
 ----------------------------------------------
@@ -83,7 +96,9 @@ sudo apt-get install libqrencode-dev
 
 If using Boost 1.37, append -mt to the boost libraries in the makefile.
 
+```
 
+```
 Dependency Build Instructions: Gentoo
 -------------------------------------
 
@@ -94,13 +109,17 @@ Take the following steps to build (no UPnP support):
  make -f makefile.unix USE_UPNP=
  strip xeniosd
 
+```
 
+```
 Notes
 -----
 The release is built with GCC and then "strip xeniosd" to strip the debug
 symbols, which reduces the executable size by about 90%.
 
+```
 
+```
 miniupnpc
 ---------
 tar -xzvf miniupnpc-1.6.tar.gz
@@ -108,7 +127,9 @@ cd miniupnpc-1.6
 make
 sudo su
 make install
+```
 
+```
 
 Berkeley DB
 -----------
@@ -116,7 +137,8 @@ You need Berkeley DB. If you have to build Berkeley DB yourself:
 ../dist/configure --enable-cxx
 make
 
-
+```
+```
 Boost
 -----
 If you need to build Boost yourself:
@@ -124,7 +146,8 @@ sudo su
 ./bootstrap.sh
 ./bjam install
 
-
+```
+```
 Security
 --------
 To help make your xenios installation more secure by making certain attacks impossible to
@@ -149,7 +172,8 @@ exploit even if a vulnerability is found, you can take the following measures:
     The output should contain:
      TYPE
     ET_DYN
-
+```
+```
 * Non-executable Stack
     If the stack is executable then trivial stack based buffer overflow exploits are possible if
     vulnerable buffers are found. By default, xenios should be built with a non-executable stack
@@ -159,9 +183,11 @@ exploit even if a vulnerability is found, you can take the following measures:
 
     To verify that the stack is non-executable after compiling use:
     scanelf -e ./xenios
-
+```
+```
     the output should contain:
     STK/REL/PTL
     RW- R-- RW-
 
     The STK RW- means that the stack is readable and writeable but not executable.
+```
